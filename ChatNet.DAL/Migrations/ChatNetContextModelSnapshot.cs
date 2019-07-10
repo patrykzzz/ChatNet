@@ -60,7 +60,15 @@ namespace ChatNet.DAL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("DayOfBirth");
+
+                    b.Property<string>("Email");
+
+                    b.Property<int>("MonthOfBirth");
+
                     b.Property<string>("Nick");
+
+                    b.Property<int>("YearOfBirth");
 
                     b.HasKey("Id");
 

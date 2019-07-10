@@ -4,6 +4,10 @@
     <ProjectReference Include="..\ChatNet.DAL\ChatNet.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>

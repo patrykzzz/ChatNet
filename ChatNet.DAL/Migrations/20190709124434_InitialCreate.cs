@@ -24,7 +24,11 @@ namespace ChatNet.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Nick = table.Column<string>(nullable: true)
+                    Nick = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    DayOfBirth = table.Column<int>(nullable: false),
+                    MonthOfBirth = table.Column<int>(nullable: false),
+                    YearOfBirth = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

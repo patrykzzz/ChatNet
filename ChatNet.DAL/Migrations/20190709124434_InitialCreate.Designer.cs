@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChatNet.DAL.Migrations
 {
     [DbContext(typeof(ChatNetContext))]
-    [Migration("20190708134009_InitialCreate")]
+    [Migration("20190709124434_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,7 +62,15 @@ namespace ChatNet.DAL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("DayOfBirth");
+
+                    b.Property<string>("Email");
+
+                    b.Property<int>("MonthOfBirth");
+
                     b.Property<string>("Nick");
+
+                    b.Property<int>("YearOfBirth");
 
                     b.HasKey("Id");
 

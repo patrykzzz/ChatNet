@@ -1,5 +1,6 @@
 ﻿using ChatNet.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace ChatNet.DAL
 {
@@ -9,9 +10,9 @@ namespace ChatNet.DAL
         public DbSet<Message> Messages { get; set; }
         public DbSet<ChatRoom> ChatRooms { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public ChatNetContext(DbContextOptions<ChatNetContext> options) : base(options)
         {
-            optionsBuilder.UseSqlServer(@"Server=.;Database=ChatNet;Integrated Security=True");
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -36,7 +37,11 @@ namespace ChatNet.DAL
                 .IsRequired();
 
             modelBuilder.Entity<UserInChatRoom>()
-                .HasKey(k => new { k.ChatRoomId, k.UserId });
+                .HasKey(k => new
+                {
+                    k.ChatRoomId,
+                    k.UserId
+                });
 
             modelBuilder.Entity<UserInChatRoom>()
                 .HasOne(u => u.User)

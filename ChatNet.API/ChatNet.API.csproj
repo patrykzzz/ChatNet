@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <UserSecretsId>a93bdd28-e101-4161-b52d-8ac13447f058</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +13,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ChatNet.BLL\ChatNet.BLL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
