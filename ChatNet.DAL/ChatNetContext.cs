@@ -1,6 +1,5 @@
 ﻿using ChatNet.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace ChatNet.DAL
 {

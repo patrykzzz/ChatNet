@@ -1,27 +1,42 @@
-﻿using System.Net.Http;
+﻿using ChatNet.API.Controllers;
+using ChatNet.API.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace ChatNet.API.Services
 {
-    public class IdentityService : IIdentityService
+    public class IdentityService
     {
-        private readonly IHttpClientFactory ClientFactory;
+        private readonly HttpClient _httpClient;
 
-        public IdentityService(IHttpClientFactory clientFactory)
+        public IdentityService(HttpClient client, IConfiguration configuration)
         {
-            ClientFactory = clientFactory;
+            _httpClient = client;
         }
 
-        public Task LoginUser(string userName, string password)
+        public async Task<ActionResult<string>> GetTokenForUser(UserLoginWebModel webModel)
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, "https://localhost:");
+            var response = await _httpClient.PostAsJsonAsync("login", webModel);
 
-            return Task.CompletedTask;
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Unable to login a user.");
+            }
+
+            return await response.Content.ReadAsStringAsync();
         }
-    }
 
-    public interface IIdentityService
-    {
-        Task LoginUser(string userName, string password);
+        public async Task Register(UserRegistrationWebModel webModel)
+        {
+            var response = await _httpClient.PostAsJsonAsync("register", webModel);
+
+            if(!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Unable to register a user.");
+            }
+        }
     }
 }
