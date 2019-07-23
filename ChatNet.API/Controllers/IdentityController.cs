@@ -19,38 +19,14 @@ namespace ChatNet.API.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<string>> Login([FromBody] UserLoginWebModel webModel)
         {
-            if(!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
-            try
-            {
-                return await _identityService.GetTokenForUser(webModel);
-            }
-            catch (System.Exception)
-            {
-                return BadRequest();
-            }
+            return await _identityService.GetTokenForUser(webModel);
         }
 
         [HttpPost("/register")]
         public async Task<IActionResult> Register([FromBody] UserRegistrationWebModel webModel)
         {
-            if(!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
-            try
-            {
-                await _identityService.Register(webModel);
-                return Ok();
-            }
-            catch (System.Exception)
-            {
-                return BadRequest();
-            }
+            await _identityService.Register(webModel);
+            return Ok();
         }
     }
 }

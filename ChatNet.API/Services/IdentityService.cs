@@ -17,7 +17,7 @@ namespace ChatNet.API.Services
             _httpClient = client;
         }
 
-        public async Task<ActionResult<string>> GetTokenForUser(UserLoginWebModel webModel)
+        public async Task<string> GetTokenForUser(UserLoginWebModel webModel)
         {
             var response = await _httpClient.PostAsJsonAsync("login", webModel);
 
