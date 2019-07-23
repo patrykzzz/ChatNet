@@ -1,7 +1,6 @@
 ﻿using ChatNet.API.Controllers;
 using ChatNet.API.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -10,10 +9,12 @@ namespace ChatNet.API.Services
 {
     public class IdentityService
     {
+        private readonly ILogger<IdentityService> _logger;
         private readonly HttpClient _httpClient;
 
-        public IdentityService(HttpClient client, IConfiguration configuration)
+        public IdentityService(ILogger<IdentityService> logger, HttpClient client)
         {
+            _logger = logger;
             _httpClient = client;
         }
 
@@ -23,6 +24,7 @@ namespace ChatNet.API.Services
 
             if (!response.IsSuccessStatusCode)
             {
+                _logger.LogError("Couldn't log a user in.");
                 throw new Exception("Unable to login a user.");
             }
 
@@ -35,6 +37,7 @@ namespace ChatNet.API.Services
 
             if(!response.IsSuccessStatusCode)
             {
+                _logger.LogError("Couldn't register new user.");
                 throw new Exception("Unable to register a user.");
             }
         }
