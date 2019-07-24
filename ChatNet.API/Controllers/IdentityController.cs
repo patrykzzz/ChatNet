@@ -17,12 +17,17 @@ namespace ChatNet.API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<string>> Login([FromBody] UserLoginWebModel webModel)
+        public async Task<ActionResult<AuthorizationTokenWebModel>> Login([FromBody] UserLoginWebModel webModel)
         {
-            return await _identityService.GetTokenForUser(webModel);
+            var token = await _identityService.GetTokenForUser(webModel);
+
+            return Ok(new AuthorizationTokenWebModel
+            {
+                Token = token
+            });
         }
 
-        [HttpPost("/register")]
+        [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] UserRegistrationWebModel webModel)
         {
             await _identityService.Register(webModel);
