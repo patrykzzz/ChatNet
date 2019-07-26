@@ -4,14 +4,16 @@ using ChatNet.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ChatNet.DAL.Migrations
 {
     [DbContext(typeof(ChatNetContext))]
-    partial class ChatNetContextModelSnapshot : ModelSnapshot
+    [Migration("20190726091446_ExtendChatRoom")]
+    partial class ExtendChatRoom
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

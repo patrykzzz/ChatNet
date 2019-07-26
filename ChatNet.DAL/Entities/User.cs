@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace ChatNet.DAL.Entities
@@ -14,5 +15,6 @@ namespace ChatNet.DAL.Entities
 
         public virtual ICollection<Message> Messages { get; set; }
         public virtual ICollection<UserInChatRoom> UserChatRooms { get; set; }
+        public virtual ICollection<ChatRoom> OwnedChatRooms { get; set; }
     }
 }

@@ -11,6 +11,8 @@
     <Compile Remove="Migrations\20190708134009_InitialCreate.Designer.cs" />
     <Compile Remove="Migrations\20190710073620_TEST.cs" />
     <Compile Remove="Migrations\20190710073620_TEST.Designer.cs" />
+    <Compile Remove="Migrations\20190726090539_ExtendChatRoom.cs" />
+    <Compile Remove="Migrations\20190726090539_ExtendChatRoom.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

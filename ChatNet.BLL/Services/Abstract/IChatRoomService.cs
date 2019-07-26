@@ -7,5 +7,6 @@ namespace ChatNet.BLL.Services.Abstract
     public interface IChatRoomService
     {
         Task<IEnumerable<ChatRoomModel>> GetAll();
+        Task Create(ChatRoomModel model);
     }
 }

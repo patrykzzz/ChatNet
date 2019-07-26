@@ -37,6 +37,11 @@ namespace ChatNet.DAL
                 .Property(c => c.Name)
                 .IsRequired();
 
+            modelBuilder.Entity<ChatRoom>()
+                .HasOne(c => c.User)
+                .WithMany(u => u.OwnedChatRooms)
+                .HasForeignKey(c => c.OwnerId);
+
             modelBuilder.Entity<UserInChatRoom>()
                 .HasKey(k => new
                 {

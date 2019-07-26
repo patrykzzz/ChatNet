@@ -1,4 +1,6 @@
-﻿using ChatNet.API.Models;
+﻿using ChatNet.API.Helpers;
+using ChatNet.API.Models;
+using ChatNet.BLL.Models;
 using ChatNet.BLL.Services.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -27,6 +29,18 @@ namespace ChatNet.API.Controllers
                 Id = x.Id,
                 Name = x.Name
             });
+        }
+
+        [HttpPost("api/chatrooms")]
+        public async Task Create(ChatRoomWebModel webModel)
+        {
+            var model = new ChatRoomModel
+            {
+                OwnerId = HttpContext.GetUserIdFromRequest(),
+                Name = webModel.Name
+            };
+
+            await _chatRoomService.Create(model);
         }
     }
 }
