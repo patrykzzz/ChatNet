@@ -11,7 +11,7 @@ namespace ChatNet.Persistence.Configurations
             builder.Property(c => c.Name)
                .IsRequired();
 
-            builder.HasOne(c => c.User)
+            builder.HasOne(c => c.Owner)
                 .WithMany(u => u.OwnedChatRooms)
                 .HasForeignKey(c => c.OwnerId);
         }

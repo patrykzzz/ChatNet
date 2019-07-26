@@ -10,7 +10,7 @@ namespace ChatNet.Domain.Entities
         public virtual ICollection<Message> Messages { get; set; }
         public virtual ICollection<UserInChatRoom> Participants { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual User Owner { get; set; }
         public Guid OwnerId { get; set; }
     }
 }

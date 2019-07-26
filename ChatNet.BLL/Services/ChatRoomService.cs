@@ -17,7 +17,7 @@
 //        {
 //            _context = context;
 //        }
-                
+
 //        public async Task<IEnumerable<ChatRoomModel>> GetAll()
 //        {
 //            var entities = await _context.ChatRooms.ToListAsync();

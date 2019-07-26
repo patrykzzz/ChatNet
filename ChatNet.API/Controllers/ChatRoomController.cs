@@ -1,33 +1,24 @@
-﻿using ChatNet.API.Helpers;
-using ChatNet.API.Models;
+﻿using ChatNet.API.Models;
+using ChatNet.Application.ChatRooms.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ChatNet.API.Controllers
 {
     [ApiController]
-    public class ChatRoomController : ControllerBase
+    public class ChatRoomController : BaseController
     {
-        //private readonly IChatRoomService _chatRoomService;
+        public ChatRoomController(IMediator mediator) : base(mediator)
+        {
+        }
 
-        //public ChatRoomController(IChatRoomService chatRoomService)
-        //{
-        //    _chatRoomService = chatRoomService;
-        //}
-
-
-        //[HttpGet("api/chatrooms")]
-        //public async Task<IEnumerable<ChatRoomWebModel>> GetChatRooms()
-        //{
-        //    var result =  await _chatRoomService.GetAll();
-        //    return result.Select(x => new ChatRoomWebModel
-        //    {
-        //        Id = x.Id,
-        //        Name = x.Name
-        //    });
-        //}
+        [HttpGet("api/chatrooms")]
+        public async Task<ActionResult<IEnumerable<ChatRoomWebModel>>> GetChatRooms()
+        {
+            return Ok(await _mediator.Send(new GetAllChatRoomsQuery()));
+        }
 
         //[HttpPost("api/chatrooms")]
         //public async Task Create(ChatRoomWebModel webModel)
