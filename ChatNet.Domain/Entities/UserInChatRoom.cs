@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ChatNet.DAL.Entities
+namespace ChatNet.Domain.Entities
 {
     public class UserInChatRoom
     {

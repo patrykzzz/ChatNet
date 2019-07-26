@@ -17,8 +17,8 @@ namespace ChatNet.DAL
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {  
-            
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ChatNetContext).Assembly);
         }
 
         async Task IChatNetContext.SaveChangesAsync()

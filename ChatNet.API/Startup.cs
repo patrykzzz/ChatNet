@@ -1,11 +1,12 @@
 ﻿using ChatNet.API.Hubs;
 using ChatNet.API.Middlewares;
-using ChatNet.API.Services;
-using ChatNet.BLL.Infrastructure;
+using ChatNet.Application.Interfaces;
+using ChatNet.Application.Users.Commands.LoginUser;
 using ChatNet.DAL;
 using ChatNet.DAL.Abstract;
-using ChatNet.DAL.Infrastructure;
+using ChatNet.Infrastructure;
 using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -17,6 +18,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Reflection;
 using System.Text;
 
 namespace ChatNet.API
@@ -33,7 +35,7 @@ namespace ChatNet.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHttpClient<IdentityService>(options =>
+            services.AddHttpClient<IIdentityService, IdentityService>(options =>
             {
                 options.BaseAddress = new System.Uri(Configuration["IdentityURI"]);
             });
@@ -48,6 +50,8 @@ namespace ChatNet.API
                     .AllowCredentials();
                 });
             });
+
+            services.AddMediatR(typeof(LoginUserCommandHandler).GetTypeInfo().Assembly);
 
             services.AddDbContext<IChatNetContext, ChatNetContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ChatNet")));
@@ -69,8 +73,6 @@ namespace ChatNet.API
                     ClockSkew = TimeSpan.Zero
                 };
             });
-
-            services.AddChatNetBLLModule();
 
             services.AddSignalR();
 

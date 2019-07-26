@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.4.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />
@@ -16,7 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ChatNet.BLL\ChatNet.BLL.csproj" />
+    <ProjectReference Include="..\ChatNet.Persistence\ChatNet.Persistence.csproj" />
+    <ProjectReference Include="..\ChatNet.Infrastructure\ChatNet.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

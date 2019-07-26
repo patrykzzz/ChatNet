@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
-using ChatNet.API.Models;
-using ChatNet.API.Services;
+using ChatNet.Application.Users.Commands.LoginUser;
+using ChatNet.Application.Users.Commands.RegisterUser;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,31 +10,22 @@ namespace ChatNet.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [AllowAnonymous]
-    public class IdentityController : ControllerBase
+    public class IdentityController : BaseController
     {
-        private readonly IdentityService _identityService;
-
-        public IdentityController(IdentityService identityService)
+        public IdentityController(IMediator mediator) : base(mediator)
         {
-            _identityService = identityService;
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<AuthorizationTokenWebModel>> Login([FromBody] UserLoginWebModel webModel)
+        public async Task<ActionResult<UserTokenModel>> Login([FromBody] LoginUserCommand command)
         {
-            var token = await _identityService.GetTokenForUser(webModel);
-
-            return Ok(new AuthorizationTokenWebModel
-            {
-                Token = token
-            });
+            return Ok(await _mediator.Send(command));
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] UserRegistrationWebModel webModel)
+        public async Task<IActionResult> Register([FromBody] RegisterUserCommand command)
         {
-            await _identityService.Register(webModel);
-            return Ok();
+            return Ok(await _mediator.Send(command));
         }
     }
 }
