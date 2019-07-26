@@ -1,5 +1,4 @@
-﻿using ChatNet.API.Controllers;
-using ChatNet.API.Models;
+﻿using ChatNet.API.Models;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Net.Http;

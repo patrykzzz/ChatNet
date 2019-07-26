@@ -1,4 +1,4 @@
-﻿using ChatNet.API.Controllers;
+﻿using ChatNet.API.Models;
 using ChatNet.API.Validation.Rules;
 using FluentValidation;
 

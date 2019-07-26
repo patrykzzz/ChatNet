@@ -1,4 +1,4 @@
-﻿namespace ChatNet.API.Controllers
+﻿namespace ChatNet.API.Models
 {
     public class UserRegistrationWebModel
     {

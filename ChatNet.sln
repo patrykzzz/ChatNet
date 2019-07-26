@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatNet.API", "ChatNet.API\ChatNet.API.csproj", "{8C818511-B8DF-4CED-BCB6-8D50B11D6D26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatNet.API", "ChatNet.API\ChatNet.API.csproj", "{8C818511-B8DF-4CED-BCB6-8D50B11D6D26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatNet.BLL", "ChatNet.BLL\ChatNet.BLL.csproj", "{AC8236A6-6268-4529-994C-1D7322EBCED9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatNet.BLL", "ChatNet.BLL\ChatNet.BLL.csproj", "{AC8236A6-6268-4529-994C-1D7322EBCED9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatNet.DAL", "ChatNet.DAL\ChatNet.DAL.csproj", "{11242C74-46AE-4F14-9CD7-4F43078A473B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatNet.DAL", "ChatNet.DAL\ChatNet.DAL.csproj", "{11242C74-46AE-4F14-9CD7-4F43078A473B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C32CD748-0117-4354-8312-8879BCABF390}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,9 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8C818511-B8DF-4CED-BCB6-8D50B11D6D26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -58,5 +57,11 @@ Global
 		{11242C74-46AE-4F14-9CD7-4F43078A473B}.Release|x64.Build.0 = Release|Any CPU
 		{11242C74-46AE-4F14-9CD7-4F43078A473B}.Release|x86.ActiveCfg = Release|Any CPU
 		{11242C74-46AE-4F14-9CD7-4F43078A473B}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A4A75B98-4B9D-47FB-8BA5-4333D3E465E0}
 	EndGlobalSection
 EndGlobal

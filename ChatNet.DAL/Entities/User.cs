@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ChatNet.DAL.Entities
 {
-    class User
+    public class User
     {
         public Guid Id { get; set; }
         public string Nick { get; set; }

@@ -1,9 +1,11 @@
-﻿using ChatNet.DAL.Entities;
+﻿using System.Threading.Tasks;
+using ChatNet.DAL.Abstract;
+using ChatNet.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace ChatNet.DAL
 {
-    class ChatNetContext : DbContext
+    public class ChatNetContext : DbContext, IChatNetContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Message> Messages { get; set; }
@@ -51,6 +53,11 @@ namespace ChatNet.DAL
                 .HasOne(u => u.ChatRoom)
                 .WithMany(c => c.Participants)
                 .HasForeignKey(u => u.ChatRoomId);
+        }
+
+        async Task IChatNetContext.SaveChangesAsync()
+        {
+            await SaveChangesAsync();
         }
     }
 }

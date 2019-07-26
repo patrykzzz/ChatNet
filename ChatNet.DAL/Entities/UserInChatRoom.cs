@@ -2,7 +2,7 @@
 
 namespace ChatNet.DAL.Entities
 {
-    class UserInChatRoom
+    public class UserInChatRoom
     {
         public Guid UserId { get; set; }
         public virtual User User { get; set; }

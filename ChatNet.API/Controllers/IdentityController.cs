@@ -1,12 +1,14 @@
 ﻿using System.Threading.Tasks;
 using ChatNet.API.Models;
 using ChatNet.API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ChatNet.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class IdentityController : ControllerBase
     {
         private readonly IdentityService _identityService;

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ChatNet.DAL.Entities
 {
-    class Message
+    public class Message
     {
         [Key]
         public Guid Id { get; set; }
