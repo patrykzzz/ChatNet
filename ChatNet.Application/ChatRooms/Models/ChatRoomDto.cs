@@ -29,5 +29,9 @@ namespace ChatNet.Application.ChatRooms.Models
                 };
             }
         }
+        public static ChatRoomDto Create(ChatRoom chatRoom)
+        {
+            return Projection.Compile().Invoke(chatRoom);
+        }
     }
 }

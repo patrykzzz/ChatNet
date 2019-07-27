@@ -1,5 +1,6 @@
 ﻿using ChatNet.Application.Users.Commands.LoginUser;
 using ChatNet.Application.Users.Commands.RegisterUser;
+using ChatNet.Application.Users.Models;
 using ChatNet.Identity.Entites;
 using ChatNet.Identity.Services;
 using Microsoft.AspNetCore.Identity;
@@ -53,7 +54,7 @@ namespace ChatNet.Identity.Controllers
         }
 
         [HttpPost("/register")]
-        public async Task<IActionResult> Register([FromBody] RegisterUserCommand command)
+        public async Task<ActionResult<UserDto>> Register([FromBody] RegisterUserCommand command)
         {
             try
             {
@@ -67,9 +68,18 @@ namespace ChatNet.Identity.Controllers
 
                 var result = await _userManager.CreateAsync(user, command.Password);
 
+                var createdUser = await _userManager.FindByNameAsync(user.UserName);
+
                 if (result.Succeeded)
                 {
-                    return Ok();
+                    return Ok(new UserDto
+                    {
+                        Id = createdUser.Id,
+                        Email = createdUser.Email,
+                        FirstName = createdUser.FirstName,
+                        LastName = createdUser.LastName,
+                        Username = createdUser.UserName
+                    });
                 }
                 return BadRequest();
             }

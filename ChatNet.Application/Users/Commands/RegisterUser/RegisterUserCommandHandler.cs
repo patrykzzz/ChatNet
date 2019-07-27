@@ -1,4 +1,5 @@
 ﻿using ChatNet.Application.Interfaces;
+using ChatNet.Application.Users.Notifications;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,7 +19,13 @@ namespace ChatNet.Application.Users.Commands.RegisterUser
 
         public async Task<Unit> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
-            await _identityService.RegisterUser(request);
+            var user = await _identityService.RegisterUser(request);
+
+            await _mediator.Publish(new UserRegisteredNotification
+            {
+                User = user
+            });
+
             return Unit.Value;
         }
     }

@@ -1,6 +1,7 @@
 ﻿using ChatNet.Application.Interfaces;
 using ChatNet.Application.Users.Commands.LoginUser;
 using ChatNet.Application.Users.Commands.RegisterUser;
+using ChatNet.Application.Users.Models;
 using MediatR;
 using Newtonsoft.Json;
 using System;
@@ -30,12 +31,10 @@ namespace ChatNet.Infrastructure
                 throw new Exception("Unable to login a user.");
             }
 
-            var token = await response.Content.ReadAsStringAsync();
-
-            return token;
+            return await response.Content.ReadAsStringAsync();
         }
 
-        public async Task RegisterUser(RegisterUserCommand registrationModel)
+        public async Task<UserDto> RegisterUser(RegisterUserCommand registrationModel)
         {
             var content = PrepareContentFromCommand(registrationModel);
             using (var response = await _httpClient.PostAsync("register", content))
@@ -44,6 +43,8 @@ namespace ChatNet.Infrastructure
                 {
                     throw new Exception("Unable to register a user.");
                 }
+
+                return JsonConvert.DeserializeObject<UserDto>(await response.Content.ReadAsStringAsync());
             };
         }
 

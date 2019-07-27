@@ -1,12 +1,16 @@
-﻿using ChatNet.API.Hubs;
-using ChatNet.API.Middlewares;
+﻿using ChatNet.API.Middlewares;
+using ChatNet.Application.ChatRooms.Behaviors;
+using ChatNet.Application.ChatRooms.Commands;
+using ChatNet.Application.ChatRooms.Models;
 using ChatNet.Application.Interfaces;
+using ChatNet.Application.SignalR.Hubs;
 using ChatNet.Application.Users.Commands.LoginUser;
 using ChatNet.DAL;
 using ChatNet.DAL.Abstract;
 using ChatNet.Infrastructure;
 using FluentValidation.AspNetCore;
 using MediatR;
+using MediatR.Pipeline;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -52,6 +56,9 @@ namespace ChatNet.API
             });
 
             services.AddMediatR(typeof(LoginUserCommandHandler).GetTypeInfo().Assembly);
+
+            services.AddTransient<IRequestPostProcessor<CreateChatRoomCommand, ChatRoomDto>, ChatRoomCreatedMessageBehavior>();
+            services.AddTransient<IClaimsService, ClaimsService>();
 
             services.AddDbContext<IChatNetContext, ChatNetContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ChatNet")));

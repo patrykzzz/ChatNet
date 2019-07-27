@@ -1,4 +1,5 @@
-﻿using ChatNet.Application.ChatRooms.Models;
+﻿using ChatNet.Application.ChatRooms.Commands;
+using ChatNet.Application.ChatRooms.Models;
 using ChatNet.Application.ChatRooms.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -20,16 +21,10 @@ namespace ChatNet.API.Controllers
             return Ok(await _mediator.Send(new GetAllChatRoomsQuery()));
         }
 
-        //[HttpPost("api/chatrooms")]
-        //public async Task Create(ChatRoomWebModel webModel)
-        //{
-        //    var model = new ChatRoomModel
-        //    {
-        //        OwnerId = HttpContext.GetUserIdFromRequest(),
-        //        Name = webModel.Name
-        //    };
-
-        //    await _chatRoomService.Create(model);
-        //}
+        [HttpPost("api/chatrooms")]
+        public async Task<IActionResult> Create(CreateChatRoomCommand command)
+        {
+            return Ok(await _mediator.Send(command));
+        }
     }
 }

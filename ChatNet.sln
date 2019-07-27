@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatNet.API", "ChatNet.API\ChatNet.API.csproj", "{8C818511-B8DF-4CED-BCB6-8D50B11D6D26}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatNet.BLL", "ChatNet.BLL\ChatNet.BLL.csproj", "{AC8236A6-6268-4529-994C-1D7322EBCED9}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C32CD748-0117-4354-8312-8879BCABF390}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{5B2D732F-D593-4569-B1A4-3EE3DB8FF286}"
@@ -19,9 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatNet.Persistence", "ChatNet.Persistence\ChatNet.Persistence.csproj", "{8048E3EA-D67B-4B92-A69C-AF95ED7D744E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatNet.Infrastructure", "ChatNet.Infrastructure\ChatNet.Infrastructure.csproj", "{67BCB953-5F08-41DD-A559-2F72961C721F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatNet.Infrastructure", "ChatNet.Infrastructure\ChatNet.Infrastructure.csproj", "{67BCB953-5F08-41DD-A559-2F72961C721F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatNet.Identity", "ChatNet.Identity\ChatNet.Identity.csproj", "{475B225F-3D86-49DA-82E1-F41B426A31F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatNet.Identity", "ChatNet.Identity\ChatNet.Identity.csproj", "{475B225F-3D86-49DA-82E1-F41B426A31F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,18 +43,6 @@ Global
 		{8C818511-B8DF-4CED-BCB6-8D50B11D6D26}.Release|x64.Build.0 = Release|Any CPU
 		{8C818511-B8DF-4CED-BCB6-8D50B11D6D26}.Release|x86.ActiveCfg = Release|Any CPU
 		{8C818511-B8DF-4CED-BCB6-8D50B11D6D26}.Release|x86.Build.0 = Release|Any CPU
-		{AC8236A6-6268-4529-994C-1D7322EBCED9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC8236A6-6268-4529-994C-1D7322EBCED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC8236A6-6268-4529-994C-1D7322EBCED9}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{AC8236A6-6268-4529-994C-1D7322EBCED9}.Debug|x64.Build.0 = Debug|Any CPU
-		{AC8236A6-6268-4529-994C-1D7322EBCED9}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{AC8236A6-6268-4529-994C-1D7322EBCED9}.Debug|x86.Build.0 = Debug|Any CPU
-		{AC8236A6-6268-4529-994C-1D7322EBCED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC8236A6-6268-4529-994C-1D7322EBCED9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AC8236A6-6268-4529-994C-1D7322EBCED9}.Release|x64.ActiveCfg = Release|Any CPU
-		{AC8236A6-6268-4529-994C-1D7322EBCED9}.Release|x64.Build.0 = Release|Any CPU
-		{AC8236A6-6268-4529-994C-1D7322EBCED9}.Release|x86.ActiveCfg = Release|Any CPU
-		{AC8236A6-6268-4529-994C-1D7322EBCED9}.Release|x86.Build.0 = Release|Any CPU
 		{A2DD0A6D-197E-4399-8BFD-04570C8CF2CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A2DD0A6D-197E-4399-8BFD-04570C8CF2CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2DD0A6D-197E-4399-8BFD-04570C8CF2CC}.Debug|x64.ActiveCfg = Debug|Any CPU
