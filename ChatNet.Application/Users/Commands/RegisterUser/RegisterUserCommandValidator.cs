@@ -1,12 +1,11 @@
-﻿using ChatNet.API.Models;
-using ChatNet.API.Validation.Rules;
+﻿using ChatNet.Application.ValidationRules;
 using FluentValidation;
 
-namespace ChatNet.API.Validation.Validators
+namespace ChatNet.Application.Users.Commands.RegisterUser
 {
-    public class UserRegistrationWebModelValidator : AbstractValidator<UserRegistrationWebModel>
+    public class RegisterUserCommandValidator : AbstractValidator<RegisterUserCommand>
     {
-        public UserRegistrationWebModelValidator()
+        public RegisterUserCommandValidator()
         {
             RuleFor(x => x.Email).EmailAddress().NotEmpty();
             RuleFor(x => x.FirstName).MinimumLength(2);

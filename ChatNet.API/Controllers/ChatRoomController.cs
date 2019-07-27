@@ -1,4 +1,4 @@
-﻿using ChatNet.API.Models;
+﻿using ChatNet.Application.ChatRooms.Models;
 using ChatNet.Application.ChatRooms.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +15,7 @@ namespace ChatNet.API.Controllers
         }
 
         [HttpGet("api/chatrooms")]
-        public async Task<ActionResult<IEnumerable<ChatRoomWebModel>>> GetChatRooms()
+        public async Task<ActionResult<IEnumerable<ChatRoomDto>>> GetChatRooms()
         {
             return Ok(await _mediator.Send(new GetAllChatRoomsQuery()));
         }

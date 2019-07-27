@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace ChatNet.API.Validation.Rules
+namespace ChatNet.Application.ValidationRules
 {
     public static class PasswordRule
     {

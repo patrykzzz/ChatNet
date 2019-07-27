@@ -1,9 +1,7 @@
 ﻿using ChatNet.Application.Users.Models;
 using ChatNet.Domain.Entities;
 using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace ChatNet.Application.ChatRooms.Models
 {

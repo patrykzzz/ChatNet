@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatNet.Persistence", "Chat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatNet.Infrastructure", "ChatNet.Infrastructure\ChatNet.Infrastructure.csproj", "{67BCB953-5F08-41DD-A559-2F72961C721F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatNet.Identity", "ChatNet.Identity\ChatNet.Identity.csproj", "{475B225F-3D86-49DA-82E1-F41B426A31F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +105,18 @@ Global
 		{67BCB953-5F08-41DD-A559-2F72961C721F}.Release|x64.Build.0 = Release|Any CPU
 		{67BCB953-5F08-41DD-A559-2F72961C721F}.Release|x86.ActiveCfg = Release|Any CPU
 		{67BCB953-5F08-41DD-A559-2F72961C721F}.Release|x86.Build.0 = Release|Any CPU
+		{475B225F-3D86-49DA-82E1-F41B426A31F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{475B225F-3D86-49DA-82E1-F41B426A31F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{475B225F-3D86-49DA-82E1-F41B426A31F0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{475B225F-3D86-49DA-82E1-F41B426A31F0}.Debug|x64.Build.0 = Debug|Any CPU
+		{475B225F-3D86-49DA-82E1-F41B426A31F0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{475B225F-3D86-49DA-82E1-F41B426A31F0}.Debug|x86.Build.0 = Debug|Any CPU
+		{475B225F-3D86-49DA-82E1-F41B426A31F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{475B225F-3D86-49DA-82E1-F41B426A31F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{475B225F-3D86-49DA-82E1-F41B426A31F0}.Release|x64.ActiveCfg = Release|Any CPU
+		{475B225F-3D86-49DA-82E1-F41B426A31F0}.Release|x64.Build.0 = Release|Any CPU
+		{475B225F-3D86-49DA-82E1-F41B426A31F0}.Release|x86.ActiveCfg = Release|Any CPU
+		{475B225F-3D86-49DA-82E1-F41B426A31F0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
