@@ -1,7 +1,4 @@
 ﻿using ChatNet.API.Middlewares;
-using ChatNet.Application.ChatRooms.Behaviors;
-using ChatNet.Application.ChatRooms.Commands;
-using ChatNet.Application.ChatRooms.Models;
 using ChatNet.Application.Interfaces;
 using ChatNet.Application.SignalR.Hubs;
 using ChatNet.Application.Users.Commands.LoginUser;
@@ -57,7 +54,6 @@ namespace ChatNet.API
 
             services.AddMediatR(typeof(LoginUserCommandHandler).GetTypeInfo().Assembly);
 
-            services.AddTransient<IRequestPostProcessor<CreateChatRoomCommand, ChatRoomDto>, ChatRoomCreatedMessageBehavior>();
             services.AddTransient<IClaimsService, ClaimsService>();
 
             services.AddDbContext<IChatNetContext, ChatNetContext>(options =>

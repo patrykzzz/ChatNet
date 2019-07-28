@@ -1,5 +1,6 @@
 ﻿using ChatNet.Application.Interfaces;
-using ChatNet.Application.Users.Notifications;
+using ChatNet.DAL.Abstract;
+using ChatNet.Domain.Entities;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,24 +9,33 @@ namespace ChatNet.Application.Users.Commands.RegisterUser
 {
     public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, Unit>
     {
-        private readonly IMediator _mediator;
         private readonly IIdentityService _identityService;
+        private readonly IChatNetContext _context;
 
-        public RegisterUserCommandHandler(IMediator mediator, IIdentityService identityService)
+        public RegisterUserCommandHandler(IIdentityService identityService, IChatNetContext context)
         {
-            _mediator = mediator;
             _identityService = identityService;
+            _context = context;
         }
 
         public async Task<Unit> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
-            var user = await _identityService.RegisterUser(request);
+            var userDto = await _identityService.RegisterUser(request);
 
-            await _mediator.Publish(new UserRegisteredNotification
+            var user = new User
             {
-                User = user
-            });
+                Id = userDto.Id,
+                Email = userDto.Email,
+                Username = userDto.Username,
+                FirstName = userDto.FirstName,
+                LastName = userDto.LastName
+            };
 
+
+            await _context.Users.AddAsync(user);
+
+            await _context.SaveChangesAsync();
+            
             return Unit.Value;
         }
     }

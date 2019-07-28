@@ -7,6 +7,8 @@ namespace ChatNet.Domain.Entities
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public DateTime CreatedOnUtc { get; set; }
+
         public virtual ICollection<Message> Messages { get; set; }
         public virtual ICollection<UserInChatRoom> Participants { get; set; }
 
