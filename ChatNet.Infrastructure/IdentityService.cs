@@ -24,14 +24,15 @@ namespace ChatNet.Infrastructure
         public async Task<string> LoginUser(LoginUserCommand loginModel)
         {
             var content = PrepareContentFromCommand(loginModel);
-            var response = await _httpClient.PostAsync("login", content);
-
-            if (!response.IsSuccessStatusCode)
+            using (var response = await _httpClient.PostAsync("login", content))
             {
-                throw new Exception("Unable to login a user.");
-            }
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception("Unable to login a user.");
+                }
 
-            return await response.Content.ReadAsStringAsync();
+                return await response.Content.ReadAsStringAsync();
+            }
         }
 
         public async Task<UserDto> RegisterUser(RegisterUserCommand registrationModel)

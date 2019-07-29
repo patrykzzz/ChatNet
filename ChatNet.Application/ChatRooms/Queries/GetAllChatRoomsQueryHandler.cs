@@ -21,7 +21,6 @@ namespace ChatNet.Application.ChatRooms.Queries
         public async Task<List<ChatRoomDto>> Handle(GetAllChatRoomsQuery request, CancellationToken cancellationToken)
         {
             return await _context.ChatRooms
-                .Include(c => c.Owner)
                 .Select(ChatRoomDto.Projection)
                 .ToListAsync();
         }

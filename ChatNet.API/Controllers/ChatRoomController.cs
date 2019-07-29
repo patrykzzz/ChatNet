@@ -26,5 +26,14 @@ namespace ChatNet.API.Controllers
         {
             return Ok(await _mediator.Send(command));
         }
+
+        [HttpGet("api/chatrooms/{chatRoomId}")]
+        public async Task<IActionResult> GetChatRoom(string chatRoomId)
+        {
+            return Ok(await _mediator.Send(new GetChatRoomQuery
+            {
+                ChatRoomId = chatRoomId
+            }));
+        }
     }
 }

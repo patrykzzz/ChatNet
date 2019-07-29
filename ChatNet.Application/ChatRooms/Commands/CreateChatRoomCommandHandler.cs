@@ -1,5 +1,4 @@
-﻿using ChatNet.Application.ChatRooms.Models;
-using ChatNet.Application.ChatRooms.Notifications;
+﻿using ChatNet.Application.ChatRooms.Notifications;
 using ChatNet.Application.Interfaces;
 using ChatNet.DAL.Abstract;
 using ChatNet.Domain.Entities;

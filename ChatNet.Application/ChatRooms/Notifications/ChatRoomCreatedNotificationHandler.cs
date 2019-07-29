@@ -1,5 +1,6 @@
 ﻿using ChatNet.Application.ChatRooms.Models;
 using ChatNet.Application.SignalR.Hubs;
+using ChatNet.Application.Users.Models;
 using ChatNet.DAL.Abstract;
 using MediatR;
 using Microsoft.AspNetCore.SignalR;
@@ -27,7 +28,20 @@ namespace ChatNet.Application.ChatRooms.Notifications
                 .Include(c => c.Owner)
                 .Single(c => c.Id == notification.ChatRoomId);
 
-            var chatRoom = ChatRoomDto.Create(entity);
+            var chatRoom = new ChatRoomDto
+            {
+                Id = entity.Id,
+                CreatedOnUtc = entity.CreatedOnUtc,
+                Name = entity.Name,
+                Owner = new UserDto
+                {
+                    Id = entity.Owner.Id,
+                    Email = entity.Owner.Email,
+                    Username = entity.Owner.Username,
+                    FirstName = entity.Owner.FirstName,
+                    LastName = entity.Owner.LastName
+                }
+            };
 
             await _hubContext.Clients.All.SendAsync("ChatRoomCreated", chatRoom);
         }
