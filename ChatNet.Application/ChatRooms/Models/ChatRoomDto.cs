@@ -37,6 +37,7 @@ namespace ChatNet.Application.ChatRooms.Models
                     {
                         Id = m.Id,
                         Content = m.Content,
+                        SentOnUtc = m.SentOnUtc,
                         Sender = new UserDto
                         {
                             Id = m.Sender.Id,
