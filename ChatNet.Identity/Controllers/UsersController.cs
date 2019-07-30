@@ -26,7 +26,7 @@ namespace ChatNet.Identity.Controllers
         }
 
         [HttpPost("/login")]
-        public async Task<ActionResult<string>> Login([FromBody] LoginUserCommand command)
+        public async Task<ActionResult<UserTokenDto>> Login([FromBody] LoginUserCommand command)
         {
             try
             {
@@ -44,7 +44,16 @@ namespace ChatNet.Identity.Controllers
                     return BadRequest();
                 }
 
-                return Ok(_tokenFactory.GetTokenForUser(user));
+                var model = new UserTokenDto
+                {
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Username = user.UserName,
+                    Token = _tokenFactory.GetTokenForUser(user)
+                };
+
+                return Ok(model);
             }
             catch (Exception ex)
             {

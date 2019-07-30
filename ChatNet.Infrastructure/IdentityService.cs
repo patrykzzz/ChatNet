@@ -21,7 +21,7 @@ namespace ChatNet.Infrastructure
             _httpClient = httpClient;
         }
 
-        public async Task<string> LoginUser(LoginUserCommand loginModel)
+        public async Task<UserTokenDto> LoginUser(LoginUserCommand loginModel)
         {
             var content = PrepareContentFromCommand(loginModel);
             using (var response = await _httpClient.PostAsync("login", content))
@@ -30,8 +30,7 @@ namespace ChatNet.Infrastructure
                 {
                     throw new Exception("Unable to login a user.");
                 }
-
-                return await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<UserTokenDto>(await response.Content.ReadAsStringAsync());
             }
         }
 

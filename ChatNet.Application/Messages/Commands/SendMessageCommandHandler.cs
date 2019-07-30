@@ -38,11 +38,7 @@ namespace ChatNet.Application.Messages.Commands
 
             await _mediator.Publish(new MessageSentNotification
             {
-                MessageId = entity.Id,
-                Content = entity.Content,
-                ChatRoomId = entity.ChatRoomId,
-                SenderId = entity.SenderId,
-                SentOnUtc = entity.SentOnUtc
+                MessageId = entity.Id
             });
 
             return Unit.Value;

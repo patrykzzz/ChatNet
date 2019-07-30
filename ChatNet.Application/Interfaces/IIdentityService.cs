@@ -7,7 +7,7 @@ namespace ChatNet.Application.Interfaces
 {
     public interface IIdentityService
     {
-        Task<string> LoginUser(LoginUserCommand loginModel);
+        Task<UserTokenDto> LoginUser(LoginUserCommand loginModel);
         Task<UserDto> RegisterUser(RegisterUserCommand registrationModel);
     }
 }

@@ -6,24 +6,18 @@ using System.Threading.Tasks;
 
 namespace ChatNet.Application.Users.Commands.LoginUser
 {
-    public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, UserTokenModel>
+    public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, UserTokenDto>
     {
-        private readonly IMediator _mediator;
         private readonly IIdentityService _identityService;
 
-        public LoginUserCommandHandler(IMediator mediator, IIdentityService identityService)
+        public LoginUserCommandHandler(IIdentityService identityService)
         {
-            _mediator = mediator;
             _identityService = identityService;
         }
 
-        public async Task<UserTokenModel> Handle(LoginUserCommand request, CancellationToken cancellationToken)
+        public async Task<UserTokenDto> Handle(LoginUserCommand request, CancellationToken cancellationToken)
         {
-            var result = await _identityService.LoginUser(request);
-            return new UserTokenModel
-            {
-                Token = result
-            };
+            return await _identityService.LoginUser(request);
         }
     }
 }

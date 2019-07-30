@@ -17,7 +17,7 @@ namespace ChatNet.API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<UserTokenModel>> Login([FromBody] LoginUserCommand command)
+        public async Task<ActionResult<UserTokenDto>> Login([FromBody] LoginUserCommand command)
         {
             return Ok(await _mediator.Send(command));
         }

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace ChatNet.Application.ChatRooms.Queries
 {
@@ -22,6 +23,7 @@ namespace ChatNet.Application.ChatRooms.Queries
             var chatRoomId = Guid.Parse(request.ChatRoomId);
             var entity = await _context.ChatRooms
                 .Include(c => c.Messages)
+                .ThenInclude(m => m.Sender)
                 .Include(c => c.Owner)
                 .SingleOrDefaultAsync(c => c.Id == chatRoomId);
 
