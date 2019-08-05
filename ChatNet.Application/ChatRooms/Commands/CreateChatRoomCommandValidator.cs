@@ -7,7 +7,6 @@ namespace ChatNet.Application.ChatRooms.Commands
         public CreateChatRoomCommandValidator()
         {
             RuleFor(c => c.Name).MinimumLength(2);
-            RuleFor(c => c.OwnerId).Empty();
         }
     }
 }

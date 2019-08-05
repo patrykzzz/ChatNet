@@ -1,12 +1,9 @@
-﻿using ChatNet.Application.ChatRooms.Models;
-using MediatR;
-using System;
+﻿using MediatR;
 
 namespace ChatNet.Application.ChatRooms.Commands
 {
     public class CreateChatRoomCommand : IRequest
     {
         public string Name { get; set; }
-        public Guid OwnerId { get; set; }
     }
 }
